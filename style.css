@@ -11,6 +11,12 @@
 
     --purple: #4b315c;
 }
+
+
+/* -------------------------
+   GLOBAL
+------------------------- */
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -46,14 +52,15 @@ body {
 
     padding: 22px 6%;
 
-    background: rgba(8, 8, 12, 0.85);
+    background: rgba(8, 8, 12, 0.88);
 
     backdrop-filter: blur(10px);
 
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 
     z-index: 1000;
 }
+
 
 .logo {
     font-size: 24px;
@@ -68,11 +75,13 @@ body {
         0 0 15px rgba(197, 31, 58, 0.25);
 }
 
+
 .nav-links {
     display: flex;
 
     gap: 35px;
 }
+
 
 .nav-links a {
     color: #c9c4bb;
@@ -88,10 +97,14 @@ body {
     transition: 0.3s;
 }
 
+
 .nav-links a:hover {
-    color: white;
+    color: var(--red);
 
     transform: translateY(-2px);
+
+    text-shadow:
+        0 0 12px rgba(197, 31, 58, 0.45);
 }
 
 
@@ -115,10 +128,15 @@ body {
     background:
         radial-gradient(
             circle at center,
-            rgba(85, 60, 120, 0.22),
+            rgba(143, 16, 40, 0.20),
             transparent 45%
         ),
-        #0b0b0f;
+        radial-gradient(
+            circle at 70% 40%,
+            rgba(75, 49, 92, 0.10),
+            transparent 35%
+        ),
+        var(--black);
 
     position: relative;
 
@@ -126,7 +144,9 @@ body {
 }
 
 
-/* subtle floating atmosphere */
+/* -------------------------
+   FLOATING ATMOSPHERE
+------------------------- */
 
 .hero::before {
 
@@ -140,27 +160,38 @@ body {
 
     border-radius: 50%;
 
-    background: rgba(120, 80, 170, 0.08);
+    background:
+        radial-gradient(
+            circle,
+            rgba(143, 16, 40, 0.13),
+            rgba(75, 49, 92, 0.06),
+            transparent 70%
+        );
 
     filter: blur(100px);
 
     animation: float 8s ease-in-out infinite;
 
+    pointer-events: none;
 }
 
 
 @keyframes float {
 
     0%, 100% {
-        transform: translateY(0px);
+        transform: translateY(0px) scale(1);
     }
 
     50% {
-        transform: translateY(-30px);
+        transform: translateY(-30px) scale(1.05);
     }
 
 }
 
+
+/* -------------------------
+   HERO CONTENT
+------------------------- */
 
 .hero-content {
 
@@ -168,6 +199,7 @@ body {
 
     max-width: 800px;
 
+    z-index: 2;
 }
 
 
@@ -180,7 +212,6 @@ body {
     color: #a69cad;
 
     margin-bottom: 20px;
-
 }
 
 
@@ -196,9 +227,11 @@ body {
 
     text-align: center;
 
-    text-shadow:
-        0 0 30px rgba(150,100,200,0.3);
+    color: var(--ivory);
 
+    text-shadow:
+        0 0 25px rgba(197, 31, 58, 0.35),
+        0 0 60px rgba(143, 16, 40, 0.20);
 }
 
 
@@ -211,7 +244,6 @@ body {
     margin-top: 25px;
 
     color: #aaa4ad;
-
 }
 
 
@@ -222,9 +254,12 @@ body {
     margin: 30px auto;
 
     color: #aaa6a0;
-
 }
 
+
+/* -------------------------
+   HERO BUTTON
+------------------------- */
 
 .hero-button {
 
@@ -234,9 +269,9 @@ body {
 
     padding: 15px 32px;
 
-    border: 1px solid #aaa0b5;
+    border: 1px solid var(--crimson);
 
-    color: white;
+    color: var(--ivory);
 
     text-decoration: none;
 
@@ -246,17 +281,22 @@ body {
 
     transition: 0.3s;
 
+    background: rgba(143, 16, 40, 0.05);
 }
 
 
 .hero-button:hover {
 
-    background: #aaa0b5;
+    background: var(--crimson);
 
-    color: #0b0b0f;
+    color: var(--ivory);
+
+    border-color: var(--red);
+
+    box-shadow:
+        0 0 25px rgba(197, 31, 58, 0.35);
 
     transform: translateY(-4px);
-
 }
 
 
@@ -273,20 +313,18 @@ body {
     padding: 120px 30px;
 
     text-align: center;
-
 }
 
 
 .section-label {
 
-    color: #a69cad;
+    color: var(--red);
 
     letter-spacing: 4px;
 
     font-size: 12px;
 
     margin-bottom: 15px;
-
 }
 
 
@@ -296,14 +334,12 @@ body {
     font-size: 42px;
 
     margin-bottom: 25px;
-
 }
 
 
 .intro p {
 
     color: #aaa6a0;
-
 }
 
 
@@ -324,7 +360,6 @@ body {
     grid-template-columns: repeat(3, 1fr);
 
     gap: 25px;
-
 }
 
 
@@ -332,12 +367,44 @@ body {
 
     padding: 45px 35px;
 
-    background: #121217;
+    background: var(--black-light);
 
-    border: 1px solid rgba(255,255,255,0.07);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+
+    position: relative;
+
+    overflow: hidden;
 
     transition: 0.3s;
+}
 
+
+/* subtle red line at the top */
+
+.feature-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 2px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--crimson),
+        transparent
+    );
+
+    opacity: 0;
+
+    transition: 0.3s;
 }
 
 
@@ -345,8 +412,17 @@ body {
 
     transform: translateY(-8px);
 
-    border-color: rgba(180,160,200,0.4);
+    border-color: rgba(143, 16, 40, 0.45);
 
+    box-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.35),
+        0 0 25px rgba(143, 16, 40, 0.08);
+}
+
+
+.feature-card:hover::before {
+
+    opacity: 1;
 }
 
 
@@ -356,6 +432,10 @@ body {
 
     margin-bottom: 20px;
 
+    color: var(--red);
+
+    text-shadow:
+        0 0 15px rgba(197, 31, 58, 0.35);
 }
 
 
@@ -364,7 +444,6 @@ body {
     letter-spacing: 3px;
 
     margin-bottom: 15px;
-
 }
 
 
@@ -373,7 +452,6 @@ body {
     color: #999;
 
     margin-bottom: 25px;
-
 }
 
 
@@ -387,6 +465,16 @@ body {
 
     letter-spacing: 2px;
 
+    transition: 0.3s;
+}
+
+
+.feature-card a:hover {
+
+    color: var(--red);
+
+    text-shadow:
+        0 0 10px rgba(197, 31, 58, 0.35);
 }
 
 
@@ -407,20 +495,23 @@ body {
     padding: 80px 10%;
 
     background:
+        radial-gradient(
+            circle at 30% 50%,
+            rgba(143, 16, 40, 0.08),
+            transparent 40%
+        ),
         linear-gradient(
             90deg,
-            #0b0b0f 10%,
-            rgba(11,11,15,0.7),
-            #0b0b0f 90%
+            var(--black) 10%,
+            rgba(11, 11, 15, 0.7),
+            var(--black) 90%
         );
-
 }
 
 
 .world-content {
 
     max-width: 600px;
-
 }
 
 
@@ -429,7 +520,6 @@ body {
     font-size: 45px;
 
     margin-bottom: 20px;
-
 }
 
 
@@ -438,7 +528,6 @@ body {
     color: #aaa;
 
     margin-bottom: 30px;
-
 }
 
 
@@ -448,9 +537,9 @@ body {
 
     padding: 13px 25px;
 
-    border: 1px solid #777;
+    border: 1px solid var(--crimson);
 
-    color: white;
+    color: var(--ivory);
 
     text-decoration: none;
 
@@ -459,16 +548,19 @@ body {
     letter-spacing: 2px;
 
     transition: 0.3s;
-
 }
 
 
 .outline-button:hover {
 
-    background: white;
+    background: var(--crimson);
 
-    color: #0b0b0f;
+    border-color: var(--red);
 
+    color: var(--ivory);
+
+    box-shadow:
+        0 0 20px rgba(197, 31, 58, 0.25);
 }
 
 
@@ -483,7 +575,6 @@ body {
     margin: auto;
 
     padding: 120px 30px;
-
 }
 
 
@@ -494,7 +585,6 @@ body {
     grid-template-columns: 1fr 1fr;
 
     gap: 25px;
-
 }
 
 
@@ -502,10 +592,20 @@ body {
 
     padding: 35px;
 
-    background: #121217;
+    background: var(--black-light);
 
-    border-left: 2px solid #81768c;
+    border-left: 2px solid var(--crimson);
 
+    transition: 0.3s;
+}
+
+
+.news-card:hover {
+
+    transform: translateX(5px);
+
+    box-shadow:
+        -10px 0 25px rgba(143, 16, 40, 0.08);
 }
 
 
@@ -515,10 +615,9 @@ body {
 
     letter-spacing: 3px;
 
-    color: #958b9c;
+    color: var(--red);
 
     margin-bottom: 10px;
-
 }
 
 
@@ -527,14 +626,12 @@ body {
     font-size: 25px;
 
     margin-bottom: 10px;
-
 }
 
 
 .news-card p {
 
     color: #999;
-
 }
 
 
@@ -548,8 +645,14 @@ footer {
 
     padding: 80px 20px;
 
-    border-top: 1px solid rgba(255,255,255,0.07);
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
 
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(143, 16, 40, 0.07),
+            transparent 45%
+        );
 }
 
 
@@ -559,13 +662,14 @@ footer h2 {
 
     margin-bottom: 10px;
 
+    text-shadow:
+        0 0 15px rgba(197, 31, 58, 0.25);
 }
 
 
 footer p {
 
     color: #777;
-
 }
 
 
@@ -574,7 +678,6 @@ footer p {
     margin-top: 30px;
 
     font-size: 12px;
-
 }
 
 
@@ -592,6 +695,7 @@ footer p {
 
     }
 
+
     .nav-links {
 
         gap: 15px;
@@ -602,17 +706,20 @@ footer p {
 
     }
 
+
     .features {
 
         grid-template-columns: 1fr;
 
     }
 
+
     .news-grid {
 
         grid-template-columns: 1fr;
 
     }
+
 
     .hero h1 {
 
