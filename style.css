@@ -219,8 +219,8 @@ body {
 
     font-size: clamp(70px, 12vw, 150px);
 
-    letter-spacing: 18px;
-
+    letter-spacing: 16px;
+    
     line-height: 1;
 
     margin-left: 0;
