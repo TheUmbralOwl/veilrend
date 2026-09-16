@@ -767,3 +767,934 @@ footer p {
 
     transform: translateY(-3px);
 }
+
+```css
+/* =========================================================
+   RULES PAGE
+========================================================= */
+
+
+/* -------------------------
+   RULES HERO
+------------------------- */
+
+.rules-hero {
+
+    min-height: 65vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 140px 20px 100px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(143, 16, 40, 0.18),
+            transparent 45%
+        ),
+        radial-gradient(
+            circle at 70% 40%,
+            rgba(75, 49, 92, 0.08),
+            transparent 35%
+        ),
+        var(--black);
+}
+
+
+.rules-hero::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 550px;
+
+    height: 550px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(143, 16, 40, 0.12),
+            rgba(75, 49, 92, 0.05),
+            transparent 70%
+        );
+
+    filter: blur(100px);
+
+    animation: rulesAtmosphere 10s ease-in-out infinite;
+
+    pointer-events: none;
+}
+
+
+@keyframes rulesAtmosphere {
+
+    0%, 100% {
+        transform: translateY(0px) scale(1);
+    }
+
+    50% {
+        transform: translateY(-25px) scale(1.06);
+    }
+
+}
+
+
+.rules-hero-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 850px;
+}
+
+
+.rules-hero h1 {
+
+    font-size: clamp(65px, 11vw, 130px);
+
+    letter-spacing: 15px;
+
+    line-height: 1;
+
+    color: var(--ivory);
+
+    text-shadow:
+        0 0 25px rgba(197, 31, 58, 0.35),
+        0 0 60px rgba(143, 16, 40, 0.18);
+
+}
+
+
+.rules-subtitle {
+
+    margin-top: 25px;
+
+    font-size: 25px;
+
+    font-style: italic;
+
+    color: #aaa4ad;
+
+}
+
+
+.rules-introduction {
+
+    max-width: 600px;
+
+    margin: 25px auto 0;
+
+    color: #99958f;
+
+}
+
+
+
+/* -------------------------
+   RULES INDEX
+------------------------- */
+
+.rules-index {
+
+    max-width: 1000px;
+
+    margin: auto;
+
+    padding: 100px 30px 70px;
+
+    text-align: center;
+
+}
+
+
+.rules-index h2 {
+
+    font-size: 42px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.rules-index > p:not(.section-label) {
+
+    max-width: 700px;
+
+    margin: 0 auto 45px;
+
+    color: #999;
+
+}
+
+
+.rules-index-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 15px;
+
+}
+
+
+.rules-index-grid a {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 18px 20px;
+
+    background: var(--black-light);
+
+    border: 1px solid rgba(255, 255, 255, 0.06);
+
+    color: var(--ivory);
+
+    text-decoration: none;
+
+    text-align: left;
+
+    font-size: 13px;
+
+    letter-spacing: 1px;
+
+    transition: 0.3s;
+
+}
+
+
+.rules-index-grid a span {
+
+    color: var(--red);
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+}
+
+
+.rules-index-grid a:hover {
+
+    transform: translateY(-4px);
+
+    border-color: rgba(143, 16, 40, 0.5);
+
+    background: #141419;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.3),
+        0 0 20px rgba(143, 16, 40, 0.07);
+
+}
+
+
+
+/* -------------------------
+   RULE SECTIONS
+------------------------- */
+
+.rules-section {
+
+    max-width: 1150px;
+
+    margin: auto;
+
+    padding: 100px 30px;
+
+}
+
+
+.rules-section.alternate {
+
+    max-width: none;
+
+    padding-left: max(30px, calc((100% - 1090px) / 2));
+
+    padding-right: max(30px, calc((100% - 1090px) / 2));
+
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(75, 49, 92, 0.05),
+            transparent 35%
+        ),
+        rgba(255, 255, 255, 0.012);
+
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+
+}
+
+
+.rules-section-heading {
+
+    max-width: 750px;
+
+    margin-bottom: 55px;
+
+}
+
+
+.rules-section-heading h2 {
+
+    font-size: 48px;
+
+    margin-bottom: 18px;
+
+}
+
+
+.rules-section-heading > p:last-child {
+
+    color: #999;
+
+    max-width: 650px;
+
+}
+
+
+
+/* -------------------------
+   INDIVIDUAL RULE CARDS
+------------------------- */
+
+.rule-card {
+
+    position: relative;
+
+    padding: 38px 45px;
+
+    margin-bottom: 20px;
+
+    background: var(--black-light);
+
+    border: 1px solid rgba(255, 255, 255, 0.06);
+
+    border-left: 2px solid rgba(143, 16, 40, 0.65);
+
+    overflow: hidden;
+
+    transition: 0.3s;
+
+}
+
+
+.rule-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--crimson),
+            transparent 60%
+        );
+
+    opacity: 0.4;
+
+}
+
+
+.rule-card:hover {
+
+    transform: translateX(5px);
+
+    border-color: rgba(143, 16, 40, 0.35);
+
+    border-left-color: var(--red);
+
+    box-shadow:
+        -10px 0 30px rgba(143, 16, 40, 0.06);
+
+}
+
+
+.rule-number {
+
+    margin-bottom: 8px;
+
+    color: var(--red);
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    font-weight: bold;
+
+}
+
+
+.rule-card h3 {
+
+    font-size: 27px;
+
+    margin-bottom: 10px;
+
+    letter-spacing: 1px;
+
+}
+
+
+.rule-summary {
+
+    color: #b3adb0;
+
+    font-style: italic;
+
+    margin-bottom: 22px;
+
+}
+
+
+.rule-body {
+
+    color: #999;
+
+    max-width: 850px;
+
+}
+
+
+.rule-body p {
+
+    margin-bottom: 16px;
+
+}
+
+
+.rule-body p:last-child {
+
+    margin-bottom: 0;
+
+}
+
+
+.rule-body strong {
+
+    color: #c8c2bb;
+
+}
+
+
+.rule-body ul {
+
+    margin: 15px 0 20px 25px;
+
+    color: #999;
+
+}
+
+
+.rule-body li {
+
+    margin-bottom: 7px;
+
+}
+
+
+
+/* -------------------------
+   NUMBERED RULE LISTS
+------------------------- */
+
+.rules-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 14px;
+
+}
+
+
+.numbered-rule {
+
+    display: grid;
+
+    grid-template-columns: 65px 1fr;
+
+    gap: 20px;
+
+    padding: 28px 30px;
+
+    background: var(--black-light);
+
+    border: 1px solid rgba(255, 255, 255, 0.05);
+
+    transition: 0.3s;
+
+}
+
+
+.numbered-rule:hover {
+
+    transform: translateX(4px);
+
+    border-color: rgba(143, 16, 40, 0.3);
+
+    box-shadow:
+        -8px 0 25px rgba(143, 16, 40, 0.05);
+
+}
+
+
+.numbered-rule > span {
+
+    color: var(--red);
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+    padding-top: 4px;
+
+}
+
+
+.numbered-rule h3 {
+
+    font-size: 20px;
+
+    margin-bottom: 8px;
+
+    letter-spacing: 1px;
+
+}
+
+
+.numbered-rule p {
+
+    color: #999;
+
+    margin-bottom: 12px;
+
+}
+
+
+.numbered-rule p:last-child {
+
+    margin-bottom: 0;
+
+}
+
+
+.numbered-rule ul {
+
+    margin: 15px 0 0 20px;
+
+    color: #999;
+
+}
+
+
+.numbered-rule li {
+
+    margin-bottom: 6px;
+
+}
+
+
+
+/* -------------------------
+   SUBSECTIONS
+------------------------- */
+
+.subsection-heading {
+
+    margin: 75px 0 30px;
+
+}
+
+
+.subsection-heading h3 {
+
+    font-size: 30px;
+
+    letter-spacing: 2px;
+
+}
+
+
+
+/* -------------------------
+   BANNED ITEMS
+------------------------- */
+
+.banned-items-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 12px;
+
+}
+
+
+.banned-item {
+
+    position: relative;
+
+    padding: 20px;
+
+    background: var(--black-light);
+
+    border: 1px solid rgba(143, 16, 40, 0.2);
+
+    color: #c9c3bb;
+
+    font-size: 14px;
+
+    transition: 0.3s;
+
+}
+
+
+.banned-item::before {
+
+    content: "×";
+
+    position: absolute;
+
+    top: 10px;
+
+    right: 15px;
+
+    color: var(--crimson);
+
+    font-size: 18px;
+
+    opacity: 0.7;
+
+}
+
+
+.banned-item:hover {
+
+    border-color: rgba(197, 31, 58, 0.45);
+
+    transform: translateY(-3px);
+
+}
+
+
+.banned-item span {
+
+    display: block;
+
+    margin-top: 5px;
+
+    color: #777;
+
+    font-size: 11px;
+
+}
+
+
+
+/* -------------------------
+   PUNISHMENT CARDS
+------------------------- */
+
+.punishment-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 18px;
+
+}
+
+
+.punishment-card {
+
+    position: relative;
+
+    padding: 35px;
+
+    background: var(--black-light);
+
+    border: 1px solid rgba(255, 255, 255, 0.06);
+
+    overflow: hidden;
+
+    transition: 0.3s;
+
+}
+
+
+.punishment-card:hover {
+
+    transform: translateY(-5px);
+
+    border-color: rgba(143, 16, 40, 0.4);
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.3);
+
+}
+
+
+.punishment-level {
+
+    color: var(--red);
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.punishment-card h3 {
+
+    font-size: 27px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.punishment-card p {
+
+    color: #999;
+
+    margin-bottom: 14px;
+
+}
+
+
+.punishment-card p:last-child {
+
+    margin-bottom: 0;
+
+}
+
+
+.punishment-card.severe {
+
+    border-color: rgba(143, 16, 40, 0.3);
+
+}
+
+
+
+/* -------------------------
+   FINAL RULE NOTICE
+------------------------- */
+
+.rules-final {
+
+    padding: 120px 30px;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(143, 16, 40, 0.10),
+            transparent 45%
+        ),
+        var(--black);
+
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+
+}
+
+
+.rules-final-content {
+
+    max-width: 750px;
+
+    margin: auto;
+
+}
+
+
+.rules-final h2 {
+
+    font-size: 43px;
+
+    margin-bottom: 25px;
+
+    text-shadow:
+        0 0 20px rgba(197, 31, 58, 0.2);
+
+}
+
+
+.rules-final p {
+
+    color: #999;
+
+    margin-bottom: 18px;
+
+}
+
+
+.rules-final .final-warning {
+
+    margin-top: 30px;
+
+    padding: 22px;
+
+    border: 1px solid rgba(143, 16, 40, 0.25);
+
+    background: rgba(143, 16, 40, 0.04);
+
+    color: #aaa;
+
+    font-style: italic;
+
+}
+
+
+
+/* -------------------------
+   MOBILE RULES
+------------------------- */
+
+@media (max-width: 800px) {
+
+
+    .rules-hero {
+
+        min-height: 60vh;
+
+        padding-top: 130px;
+
+    }
+
+
+    .rules-hero h1 {
+
+        letter-spacing: 8px;
+
+    }
+
+
+    .rules-index {
+
+        padding-top: 80px;
+
+    }
+
+
+    .rules-index-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .rules-section {
+
+        padding: 80px 20px;
+
+    }
+
+
+    .rules-section.alternate {
+
+        padding-left: 20px;
+
+        padding-right: 20px;
+
+    }
+
+
+    .rules-section-heading h2 {
+
+        font-size: 38px;
+
+    }
+
+
+    .rule-card {
+
+        padding: 30px 25px;
+
+    }
+
+
+    .rule-card h3 {
+
+        font-size: 23px;
+
+    }
+
+
+    .numbered-rule {
+
+        grid-template-columns: 45px 1fr;
+
+        gap: 12px;
+
+        padding: 24px 20px;
+
+    }
+
+
+    .banned-items-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .punishment-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .rules-final {
+
+        padding: 90px 20px;
+
+    }
+
+
+    .rules-final h2 {
+
+        font-size: 34px;
+
+    }
+
+}
+```
