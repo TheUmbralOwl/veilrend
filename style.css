@@ -1,0 +1,23 @@
+body {
+    background-color: #111111;
+    color: #dddddd;
+    font-family: Georgia, serif;
+    text-align: center;
+    margin: 0;
+}
+
+h1 {
+    font-size: 60px;
+    letter-spacing: 8px;
+}
+
+h2 {
+    font-weight: normal;
+    letter-spacing: 3px;
+}
+
+main {
+    max-width: 1000px;
+    margin: auto;
+    padding: 40px;
+}
